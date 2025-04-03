@@ -14,28 +14,35 @@
   if (isset($_POST["registrarse"])) {
     $usuario = $_POST["usuario"];
     $contraseña = md5($_POST["contraseña"]);
-
-    // Verificamos si el usuario ya existe
-    $consulta = $conexion->prepare("SELECT usuario FROM login WHERE usuario = ?");
-    $consulta->bind_param("s", $usuario);
-    $consulta->execute();
-    $resultado = $consulta->get_result();
-
-    if ($resultado->num_rows > 0) {
-      // Si el usuario ya existe, mostramos un mensaje de error
-      echo "<script>alert('El usuario ya está registrado. Por favor, elige otro nombre de usuario.');</script>";
-      echo "<script>window.location.href = './registrar.php';</script>";
+    
+    if (strlen($usuario) < 8){
+      echo "<script>alert('el usuario debe tener almenos 8 caracteres');
+      window.history.go(-1)</script>";
+    } elseif (strlen($contraseña)  < 8){
+      echo "<script>alert('la contraseña debe tener almenos 8 caracteres');</script>";
     } else {
-      // Si el usuario no existe, procedemos a registrarlo
-      $consulta = $conexion->prepare("INSERT INTO login (usuario, contraseña) VALUES (?,?)");
-      $consulta->bind_param("ss", $usuario, $contraseña);
-
-      if ($consulta->execute()) {
-        echo "<script>alert('Has sido registrado 😊');</script>";
-        echo "<script>window.location.href = './registrar.php';</script>";
+      // Verificamos si el usuario ya existe
+      $consulta = $conexion->prepare("SELECT usuario FROM login WHERE usuario = ?");
+      $consulta->bind_param("s", $usuario);
+      $consulta->execute();
+      $resultado = $consulta->get_result();
+  
+      if ($resultado->num_rows > 0) {
+        // Si el usuario ya existe, mostramos un mensaje de error
+        echo "<script>alert('El usuario ya está registrado. Por favor, elige otro nombre de usuario.');</script>";
+        echo "<script>window.history.go(-1);</script>";
       } else {
-        echo "<script>alert('Error al registrar');</script>";
-        echo "<script>window.location.href = './registrar.php';</script>";
+        // Si el usuario no existe, procedemos a registrarlo
+        $consulta = $conexion->prepare("INSERT INTO login (usuario, contraseña) VALUES (?,?)");
+        $consulta->bind_param("ss", $usuario, $contraseña);
+  
+        if ($consulta->execute()) {
+          echo "<script>alert('Has sido registrado 😊');</script>";
+          echo "<script>window.location.href = '../index.php';</script>";
+        } else {
+          echo "<script>alert('Error al registrar');</script>";
+          echo "<script>window.history.go(-1);</script>";
+        }
       }
     }
   }
