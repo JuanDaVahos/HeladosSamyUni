@@ -51,7 +51,7 @@ if ($_SESSION['usuario'] !== 'admin') {
     //si el la consulta intenta modificar alguna fila, quiere decir que el id ya existe
     if ($resultado->num_rows > 0) {
       echo "<script>alert('El id ya existe');</script>";
-      echo "<script>window.location.href = './index.php';</script>";
+      echo "<script>window.history.go(-1);';</script>";
     }
 
     //este if lo que hace es verificar si se selecciono una imagen y si la subio correctamente
@@ -71,7 +71,7 @@ if ($_SESSION['usuario'] !== 'admin') {
         //este escrip lo usaremos mucho
         //lo que hace es rediregir al usuario a la pagina principal
         //para que al actualizar la pagina no se vuelva a hacer el proceso
-        echo "<script>window.location.href = './index.php';</script>";
+        echo "<script>window.history.go(-1);;</script>";
       }
 
       //time(), es para que el nombre de la imagen sea unico
@@ -110,21 +110,21 @@ if ($_SESSION['usuario'] !== 'admin') {
         //si se mueve correctamente
         if (move_uploaded_file($archivo['tmp_name'], $rutaSubida)) {
           echo "<script>alert('Helado agregado correctamente');</script>";
-          echo "<script>window.location.href = './index.php';</script>";
+          echo "<script>window.history.go(-1);;</script>";
         } else {
           $conexion->query("DELETE FROM helados WHERE id='$id'");
           echo "<script>alert('Error al subir la imagen. Código: " . $archivo['error'] . "');</script>";
-          echo "<script>window.location.href = './index.php';</script>";
+          echo "<script>window.history.go(-1);;</script>";
         }
       } else {
         echo "<script>alert('Error al guardar en la base de datos: " . $conexion->error . "');</script>";
-        echo "<script>window.location.href = './index.php';</script>";
+        echo "<script>window.history.go(-1);;</script>";
       }
     } else {
       echo "<script>alert('No se seleccionó ninguna imagen o hubo un error en la subida');</script>";
-      echo "<script>window.location.href = './index.php';</script>";
+      echo "<script>window.history.go(-1);;</script>";
     }
-    echo "<script>window.location.href = './index.php';</script>";
+    echo "<script>window.history.go(-1);;</script>";
   }
 
   ////////////////////////////////////////////////////////////////////
@@ -165,15 +165,15 @@ if ($_SESSION['usuario'] !== 'admin') {
         //si el helado no existe, se le avisa al usuario
         if ($existe == 0) {
           echo "<script>alert('No se encontró ningún helado con ese ID');</script>";
-          echo "<script>window.location.href = './index.php';</script>";
+          echo "<script>window.history.go(-1);;</script>";
         }
       } else {
         echo "<script>alert('Error al obtener el resultado');</script>";
-        echo "<script>window.location.href = './index.php';</script>";
+        echo "<script>window.history.go(-1);;</script>";
       }
     } else {
       echo "<script>alert('Error en la consulta');</script>";
-      echo "<script>window.location.href = './index.php';</script>";
+      echo "<script>window.history.go(-1);;</script>";
     }
   }
 
@@ -203,7 +203,7 @@ if ($_SESSION['usuario'] !== 'admin') {
       //si el usuario intenta subir otro archivo que no sea .webp, le decimos que ni mierda, no se puede jaja
       if (!in_array($archivo['type'], $tiposPermitidos)) {
         echo "<script>alert('Solo se permiten archivos .webp');</script>";
-        echo "<script>window.location.href = './index.php';</script>";
+        echo "<script>window.history.go(-1);;</script>";
       }
 
       //time(), es para que el nombre de la imagen sea unico
@@ -262,18 +262,18 @@ if ($_SESSION['usuario'] !== 'admin') {
         //tmp_name, es para saber la ruta temporal de la imagen
         if (move_uploaded_file($archivo['tmp_name'], $rutaSubida)) {
           echo "<script>alert('Helado actualizado correctamente');</script>";
-          echo "<script>window.location.href = './index.php';</script>";
+          echo "<script>window.history.go(-1);;</script>";
         } else {
           echo "<script>alert('Error al subir la imagen. Código: " . $file['error'] . "');</script>";
-          echo "<script>window.location.href = './index.php';</script>";
+          echo "<script>window.history.go(-1);;</script>";
         }
       } else {
         echo "<script>alert('Error al guardar en la base de datos: " . $conexion->error . "');</script>";
-        echo "<script>window.location.href = './index.php';</script>";
+        echo "<script>window.history.go(-1);;</script>";
       }
     } else {
       echo "<script>alert('No se seleccionó ninguna imagen o hubo un error en la subida');</script>";
-      echo "<script>window.location.href = './index.php';</script>";
+      echo "<script>window.history.go(-1);;</script>";
     }
   }
   //////////////////////////////////////////////////////////////////////
@@ -323,7 +323,7 @@ if ($_SESSION['usuario'] !== 'admin') {
     } else {
       echo "<script>alert('Por favor, ingrese un ID válido');</script>";
     }
-    echo "<script>window.location.href = './index.php';</script>";
+    echo "<script>window.history.go(-1);;</script>";
   }
 
   //cerramos la conexion a la base de datos
