@@ -63,9 +63,9 @@ mysqli_close($conexion);
   <form action="index.php" method="post">
     <h1>Iniciar Sesión</h1>
     <input type="text" name="usuario" placeholder="Usuario" required>
-    <input type="password" name="contraseña" placeholder="Contraseña" required>
+    <input type="password" name="contraseña" placeholder="Contraseña" required>
     <div class="botones">
-      <button name="iniciarSecion">Iniciar Seción</button>
+      <button name="iniciarSesion">Iniciar Sesión</button>
       <a href="./public/registrar.php">Registrarse</a>
     </div>
   </form>

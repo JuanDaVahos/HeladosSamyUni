@@ -4,19 +4,19 @@
 include("./conexionMySql.php");
 
 /////////////////////////////////////////////////////////////////////
-// inciamos la sesion, para poder usar las variables de sision
+// Iniciamos la sesión para poder usar las variables de sesión
 session_start();
 
-// Comprobamos si el usuario ya ah iniciado sesion
-// si no ah iniciado sesion ->
+// Comprobamos si el usuario ya ha iniciado sesión
 if (!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) {
-  // lo rediregimos a la pagina de login
+  // Lo redirigimos a la página de login
   header("Location: ../index.php");
   exit();
 }
+
 // Verifica si el usuario es administrador
 if ($_SESSION['usuario'] !== 'admin') {
-  // Si no es administrador, redirige a la página de login
+  // Si no es administrador, redirige a la página principal
   header("Location: ../principalSamy.php");
   exit();
 }

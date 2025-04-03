@@ -95,9 +95,9 @@ if (!isset($_SESSION['usuario'])) {
           echo '<img src="' . $helado['imagen'] . '" alt="' . $helado['nombre'] . '">';
           echo '<h2>' . htmlspecialchars($helado['nombre']) . '</h2>';
           echo '<h3 class="precio-helado">$' . htmlspecialchars($helado['precio']) . '</h3>';
-          echo '<button class="comprar" title="comprar">+ Carrito</button>';
+          echo '<button class="comprar" title="Comprar">+ Carrito</button>';
           echo '</div>';
-          echo '</article class="helado">';
+          echo '</article>';
         }
       }
 
@@ -108,9 +108,7 @@ if (!isset($_SESSION['usuario'])) {
           while ($fila = $resultado->fetch_assoc()) {
             $Helados[] = $fila;
           }
-          //si la variable Helados no esta vacia
           if (!empty($Helados)) {
-            //llamamos a la funcion mostrarHelados
             mostrarHelados($Helados);
           }
         }

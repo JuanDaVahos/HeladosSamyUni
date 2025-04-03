@@ -13,13 +13,13 @@
 
   if (isset($_POST["registrarse"])) {
     $usuario = $_POST["usuario"];
-    $contraseña =($_POST["contraseña"]);
+    $contraseña = ($_POST["contraseña"]);
     $contraseñaEncriptada = password_hash($contraseña, PASSWORD_DEFAULT);
-    
-    if (strlen($usuario) < 8){
+
+    if (strlen($usuario) < 8) {
       echo "<script>alert('el usuario debe tener almenos 8 caracteres');
       window.history.go(-1)</script>";
-    } elseif (strlen($contraseña)  < 8){
+    } elseif (strlen($contraseña) < 8) {
       echo "<script>alert('la contraseña debe tener almenos 8 caracteres');</script>";
     } else {
       // Verificamos si el usuario ya existe
@@ -27,7 +27,7 @@
       $consulta->bind_param("s", $usuario);
       $consulta->execute();
       $resultado = $consulta->get_result();
-  
+
       if ($resultado->num_rows > 0) {
         // Si el usuario ya existe, mostramos un mensaje de error
         echo "<script>alert('El usuario ya está registrado. Por favor, elige otro nombre de usuario.');</script>";
@@ -36,7 +36,7 @@
         // Si el usuario no existe, procedemos a registrarlo
         $consulta = $conexion->prepare("INSERT INTO login (usuario, contraseña) VALUES (?,?)");
         $consulta->bind_param("ss", $usuario, $contraseñaEncriptada);
-  
+
         if ($consulta->execute()) {
           echo "<script>alert('Has sido registrado 😊');</script>";
           echo "<script>window.location.href = '../index.php';</script>";
@@ -51,7 +51,7 @@
   <form action="registrar.php" method="post">
     <h1>Registrarse</h1>
     <input type="text" name="usuario" placeholder="Usuario">
-    <input type="password" name="contraseña" placeholder="Contraseña">
+    <input type="password" name="contraseña" placeholder="Contraseña">
     <div class="botones">
       <button name="registrarse">Registrarse</button>
     </div>
