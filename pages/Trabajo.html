@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../estilo.css">
+  <link rel="icon" href="../source/icono.svg">
+  <title>Trabaja con nosotros</title>
+</head>
+
+<body>
+  <header>
+    <div class="back">
+      <div class="menu container">
+        <a href="../principalSamy.php" class="logo">
+          <img src="../source/icono.webp" alt="Logo del negocio" title="HELADOS SAMY Logo">
+        </a>
+        <div>
+          <label>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon-tabler-shopping-bag">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
+              <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+            </svg>
+          </label>
+          <label for="menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="icon-tabler-menu">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M4 8l16 0" />
+              <path d="M4 16l16 0" />
+            </svg>
+          </label>
+        </div>
+        <input type="checkbox" id="menu" />
+        <nav class="navbar">
+          <ul>
+            <li>
+              <a href="../principalSamy.php">Inicio</a>
+            </li>
+            <li>
+              <a href="./Info.html">Contacto</a>
+            </li>
+            <li>
+              <a href="./Trabajo.html">Trabaja con nosotros</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="contenido">
+      <h2>Trabaja con nosotros</h2>
+      <p>Si te gustaría trabajar con nosotros, por favor llena el siguiente formulario y nos pondremos en contacto
+        contigo.</p>
+      <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" required>
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" id="correo" placeholder="Correo electronico" required>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" name="telefono" id="telefono" placeholder="Numero de telefono" required>
+        <label for="mensaje">¿Por que quiere trabajar con nosotros?:</label>
+        <textarea name="mensaje" id="mensaje" placeholder="Detalles aquí" required></textarea>
+        <button>Enviar</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p class="copy">© 2025 Helados SAMY <strong><a href="https://github.com/JuanDaVahos"
+          target="_blank">@VahosDev</a></strong></p>
+  </footer>
+</body>
+
+</html>
