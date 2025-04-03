@@ -15,7 +15,7 @@ if (!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) {
 }
 
 // Verifica si el usuario es administrador
-if ($_SESSION['usuario'] !== 'admin') {
+if ($_SESSION['rol'] !== 'admin') {
   // Si no es administrador, redirige a la página principal
   header("Location: ../principalSamy.php");
   exit();

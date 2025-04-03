@@ -1,7 +1,7 @@
 <?php
 include('./db/conexionMySql.php');
 
-if (isset($_POST["iniciarSecion"])) {
+if (isset($_POST["iniciarSesion"])) {
   $usuario = $_POST["usuario"];
   $contraseña = $_POST["contraseña"];
   $existe = 0;
