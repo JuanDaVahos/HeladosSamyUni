@@ -6,32 +6,32 @@ if (isset($_POST["iniciarSecion"])) {
   $contraseña = $_POST["contraseña"];
   $existe = 0;
 
-  $consulta = $conexion->prepare("SELECT * FROM login WHERE BINARY usuario=? AND BINARY contraseña=?");
-  $consulta->bind_param("ss", $usuario, $contraseña);
+  $consulta = $conexion->prepare("SELECT * FROM login WHERE BINARY usuario=?");
+  $consulta->bind_param("s", $usuario);
   if ($consulta->execute()) {
     $resultado = $consulta->get_result();
     if ($resultado) {
       while ($resultados = $resultado->fetch_assoc()) {
-        $existe = 1;
-        $usuario = $resultados['usuario'];
-        $contraseña = $resultados['contraseña'];
-        $rol = $resultados['rol'];
+        if (password_verify($contraseña, $resultados['contraseña'])) {
+          $existe = 1;
+          $usuario = $resultados['usuario'];
+          $rol = $resultados['rol'];
 
-        session_start();
-        $_SESSION['usuario'] = $usuario;
-        $_SESSION['contraseña'] = $contraseña;
-        $_SESSION['rol'] = $rol;
+          session_start();
+          $_SESSION['usuario'] = $usuario;
+          $_SESSION['rol'] = $rol;
 
-        if ($rol == 'admin') {
-          header("Location: ./db/index.php");
-        } else {
-          header("Location: ./principalSamy.php");
+          if ($rol == 'admin') {
+            header("Location: ./db/index.php");
+          } else {
+            header("Location: ./principalSamy.php");
+          }
+          exit();
         }
-        exit();
       }
       if ($existe == 0) {
         echo "<script>
-          alert('No se encontro este Usuario');
+          alert('Usuario o contraseña incorrectos');
           window.history.go(-1);
         </script>";
       }

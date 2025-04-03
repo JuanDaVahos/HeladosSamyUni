@@ -13,7 +13,8 @@
 
   if (isset($_POST["registrarse"])) {
     $usuario = $_POST["usuario"];
-    $contraseña = md5($_POST["contraseña"]);
+    $contraseña =($_POST["contraseña"]);
+    $contraseñaEncriptada = password_hash($contraseña, PASSWORD_DEFAULT);
     
     if (strlen($usuario) < 8){
       echo "<script>alert('el usuario debe tener almenos 8 caracteres');
@@ -34,7 +35,7 @@
       } else {
         // Si el usuario no existe, procedemos a registrarlo
         $consulta = $conexion->prepare("INSERT INTO login (usuario, contraseña) VALUES (?,?)");
-        $consulta->bind_param("ss", $usuario, $contraseña);
+        $consulta->bind_param("ss", $usuario, $contraseñaEncriptada);
   
         if ($consulta->execute()) {
           echo "<script>alert('Has sido registrado 😊');</script>";
