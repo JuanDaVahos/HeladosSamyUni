@@ -13,7 +13,7 @@
   <header>
     <div class="back">
       <div class="menu container">
-        <a href="../principalSamy.php" class="logo">
+        <a href="../index.php" class="logo">
           <img src="../source/icono.webp" alt="Logo del negocio" title="HELADOS SAMY Logo">
         </a>
         <div>
@@ -31,13 +31,16 @@
         <nav class="navbar">
           <ul>
             <li>
-              <a href="../principalSamy.php">Inicio</a>
+              <a href="../index.php">Inicio</a>
             </li>
             <li>
               <a href="./Info.html">Contacto</a>
             </li>
             <li>
               <a href="./Trabajo.html">Trabaja con nosotros</a>
+            </li>
+            <li>
+              <a href="../login.php">Iniciar Sesion</a>
             </li>
             <li>
               <a href="carrito.html">
@@ -61,7 +64,7 @@
       <h2>Trabaja con nosotros</h2>
       <p>Si te gustaría trabajar con nosotros, por favor llena el siguiente formulario y nos pondremos en contacto
         contigo.</p>
-      <form>
+      <form action="../public/trabajo.php" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" required>
         <label for="correo">Correo:</label>
@@ -70,7 +73,7 @@
         <input type="tel" name="telefono" id="telefono" placeholder="Número de teléfono" required>
         <label for="mensaje">¿Por qué quiere trabajar con nosotros?:</label>
         <textarea name="mensaje" id="mensaje" placeholder="Escribe los detalles aquí" required></textarea>
-        <button>Enviar</button>
+        <button name="enviar">Enviar</button>
       </form>
     </section>
   </main>

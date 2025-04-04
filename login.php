@@ -21,7 +21,6 @@ if (isset($_POST["iniciarSesion"])) {
           $_SESSION['usuario'] = $usuario;
           $_SESSION['rol'] = $rol;
 
-          // Redirección basada en el rol
           if ($rol === 'admin') {
             header("Location: ./db/admin.php");
           } else {
@@ -61,7 +60,7 @@ mysqli_close($conexion);
 </head>
 
 <body>
-  <form action="index.php" method="post">
+  <form action="login.php" method="post">
     <h1>Iniciar Sesión</h1>
     <input type="text" name="usuario" placeholder="Usuario" required>
     <input type="password" name="contraseña" placeholder="Contraseña" required>

@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) {
 // Verifica si el usuario es administrador
 if ($_SESSION['rol'] !== 'admin') {
   // Si no es administrador, redirige a la página principal
-  header("Location: ../index.php"); // Cambiar a principalSamy.php si es necesario
+  header("Location: ../index.php");
   exit();
 }
 ?>
@@ -330,7 +330,7 @@ if ($_SESSION['rol'] !== 'admin') {
   mysqli_close($conexion);
   ?>
   <!-- ////////////////////formulario//////////////////////////////// -->
-  <form action="./index.php" method="POST" enctype="multipart/form-data">
+  <form action="./admin.php" method="POST" enctype="multipart/form-data">
     <label for="id">Id Helado:</label>
     <input type="text" name="id" id="id" value="<?php echo isset($id) ? $id : ''; ?>" required>
     <label for="nombre">Nombre Helado:</label>

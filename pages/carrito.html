@@ -13,7 +13,7 @@
   <header>
     <div class="back">
       <div class="menu container">
-        <a href="../principalSamy.php" class="logo">
+        <a href="../index.php" class="logo">
           <img src="../source/icono.webp" alt="Logo del negocio" title="HELADOS SAMY Logo">
         </a>
         <div>
@@ -31,13 +31,16 @@
         <nav class="navbar">
           <ul>
             <li>
-              <a href="../principalSamy.php">Inicio</a>
+              <a href="../index.php">Inicio</a>
             </li>
             <li>
               <a href="./Info.html">Contacto</a>
             </li>
             <li>
               <a href="./Trabajo.html">Trabaja con nosotros</a>
+            </li>
+            <li>
+              <a href="../login.php">Iniciar Sesion</a>
             </li>
             <li>
               <a href="carrito.html">
@@ -60,11 +63,55 @@
     <section class="carrito">
 
     </section>
+
   </main>
+  <center><button class="Comprar">Comprar</button></center>
   <footer>
     <p class="copy">© 2025 Helados SAMY <strong><a href="https://github.com/JuanDaVahos"
           target="_blank">@VahosDev</a></strong></p>
   </footer>
 </body>
+
+<style>
+  .carrito-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    width: 300px;
+    background: #ffffffd2;
+    border-radius: 20px;
+    box-shadow: #000000 0px 0px 10px;
+  }
+
+  .Comprar {
+    width: 200px;
+    background-color: #7f9244;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #76fd07;
+    }
+  }
+
+  .eliminar {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fd0707;
+    }
+  }
+</style>
 
 </html>

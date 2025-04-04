@@ -1,12 +1,3 @@
-<?php
-session_start();
-// Verifica si la sesión ya ha sido iniciada
-if (!isset($_SESSION['usuario'])) {
-  // Si no ha iniciado sesión, redirige a la página de inicio de sesión
-  header("Location: ./pages/login.html");
-  exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,7 +13,7 @@ if (!isset($_SESSION['usuario'])) {
   <header>
     <div class="back">
       <div class="menu container">
-        <a href="principalSamy.php" class="logo">
+        <a href="index.php" class="logo">
           <img src="./source/icono.webp" alt="Logo del negocio" title="HELADOS SAMY Logo">
         </a>
         <div>
@@ -51,7 +42,7 @@ if (!isset($_SESSION['usuario'])) {
         <nav class="navbar">
           <ul>
             <li>
-              <a href="./principalSamy.php">Inicio</a>
+              <a href="./index.php">Inicio</a>
             </li>
             <li>
               <a href="./pages/Info.html">Contacto</a>
