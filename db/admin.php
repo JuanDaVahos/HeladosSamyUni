@@ -10,14 +10,14 @@ session_start();
 // Comprobamos si el usuario ya ha iniciado sesión
 if (!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) {
   // Lo redirigimos a la página de login
-  header("Location: ../index.php");
+  header("Location: ../login.php");
   exit();
 }
 
 // Verifica si el usuario es administrador
 if ($_SESSION['rol'] !== 'admin') {
   // Si no es administrador, redirige a la página principal
-  header("Location: ../principalSamy.php");
+  header("Location: ../index.php"); // Cambiar a principalSamy.php si es necesario
   exit();
 }
 ?>

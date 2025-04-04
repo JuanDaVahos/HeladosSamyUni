@@ -15,8 +15,11 @@ inputArchivo.addEventListener('change', () => {
   const archivo = inputArchivo.files[0];
   const reader = new FileReader();
 
+  //cargamos la imagen
   reader.addEventListener('load', () => {
     const verImagen = document.querySelector('.ver_imagen');
+    //si hay una imagen anterior, limpiamos el html del contenedor 
+    //para que no se superpongan
     verImagen.innerHTML = '';
     const imagen = document.createElement('img');
     imagen.src = reader.result;
