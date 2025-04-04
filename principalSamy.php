@@ -85,7 +85,6 @@ if (!isset($_SESSION['usuario'])) {
       <?php
 
       include "./db/conexionMySql.php";
-
       function mostrarHelados($helados)
       {
         foreach ($helados as $helado) {
